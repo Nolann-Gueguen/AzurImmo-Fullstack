@@ -1,0 +1,40 @@
+
+.apt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+.apt-card {
+  background: white;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary-green); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.apt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.2);
+}
+
+.apt-card-header {
+  background-color: var(--medium-green);
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.apt-card-body {
+  padding: 20px;
+}
+
+.apt-badge {
+  background: var(--primary-green);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
