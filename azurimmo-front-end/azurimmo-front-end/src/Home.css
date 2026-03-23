@@ -5,17 +5,7 @@
   flex-direction: column;
 }
 
-.home-header {
-  background-color: #27ae60;
-  padding: 2rem;
-  color: white;
-  text-align: center;
-}
-
-.home-header h1 {
-  color: white;
-  margin: 0;
-}
+/* The header is now handled by <PageHeader /> */
 
 .home-container {
   flex: 1;

@@ -1,0 +1,101 @@
+.page-header {
+  background-color: #27ae60;
+  padding: 1.8rem 2rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(39, 174, 96, 0.35);
+}
+
+/* Subtle dot-grid background texture */
+.page-header__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+.page-header__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ── Diamond / rotating square ── */
+.page-header__diamond-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.page-header__diamond-wrapper--right {
+  /* mirror-ish delay so it feels balanced, not identical */
+  animation-delay: 0.4s;
+}
+
+.page-header__diamond-wrapper--left {
+  /* mirror-ish delay so it feels balanced, not identical */
+  animation-name: diamond-spin-reverse;
+  animation-delay: 0.4s;
+}
+
+.page-header__diamond {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 4px;
+  animation: diamond-spin 4s linear infinite;
+}
+
+.page-header__diamond--inner {
+  width: 14px;
+  height: 14px;
+  border-color: rgba(255, 255, 255, 0.5);
+  animation: diamond-spin-reverse 3s linear infinite;
+}
+
+.page-header__diamond--slow {
+  animation-name: diamond-spin-reverse;
+  animation-duration: 6s;
+}
+
+.page-header__diamond--reverse {
+  animation-name: diamond-spin-reverse;
+  animation-duration: 4s;
+}
+
+@keyframes diamond-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes diamond-spin-reverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ── Title ── */
+.page-header__title {
+  color: white;
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Responsive: hide diamonds on very small screens ── */
+@media (max-width: 420px) {
+  .page-header__diamond-wrapper {
+    display: none;
+  }
+}

@@ -1,44 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
+  /* ── Greens ── */
+  --primary:       #2ecc71;
+  --primary-dark:  #22a85e;
+  --primary-deep:  #1a7a45;
+  --accent:        #27ae60;
 
-  --primary-green: #2ecc71;      
-  --dark-green: #37633F;
-  --medium-green: #27ae60;         
-  --light-green: #e9f7ef;        
-  --text-dark: #2c3e50;
-  --bg-white: #ffffff;
-  
-  color: var(--text-dark);
-  background-color: #f4f7f6; 
+  /* ── Neutrals / surfaces ── */
+  --dark:          #111d15;   /* deep forest — used by Home hero */
+  --text:          #2c3e30;
+  --text-muted:    #6b7f70;
+  --surface:       #ffffff;
+  --bg:            #f0f6f2;
+  --border:        #d4e8da;
+  --light:         #e8f5ed;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 2px 8px  rgba(30,80,50,0.07);
+  --shadow-md:  0 6px 24px rgba(30,80,50,0.11);
+  --shadow-lg:  0 16px 48px rgba(30,80,50,0.14);
+
+  /* ── Shape ── */
+  --radius:     14px;
+  --radius-sm:  8px;
+
+  /* ── Motion ── */
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);   /* alias used by Home */
+
+  color: var(--text);
+  background-color: var(--bg);
 }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-#root {
-  width: 100%;
-}
+#root { width: 100%; }
 
-h1 {
-  color: var(--dark-green);
-}
-
-h2 {
-  color: var(--medium-green);
+h1, h2, h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 a {
-  color: var(--primary-green);
+  color: var(--primary);
   text-decoration: none;
-  transition: 0.3s;
+  transition: color var(--transition);
 }
+a:hover { color: var(--primary-deep); }
 
-a:hover {
-  color: var(--dark-green);
-}
-
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }

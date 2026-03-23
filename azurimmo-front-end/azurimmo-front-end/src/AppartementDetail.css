@@ -3,23 +3,12 @@
   min-height: 100vh;
 }
 
-.detail-header {
-  background-color: #27ae60;
-  padding: 2rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.detail-header h1 {
-  color: white;
-  margin: 0;
-}
+/* The header is now handled by <PageHeader /> */
 
 .detail-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 2rem 20px 40px;
 }
 
 .btn-back {
