@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import PageHeader from './PageHeader';
 import './ListAppartement.css';
 
 interface Appartement {
@@ -33,14 +34,23 @@ const ListAppartement: React.FC = () => {
     fetchAppartements();
   }, []);
 
-  if (loading) return <div className="text-center p-10">Chargement en cours...</div>;
-  if (error) return <div className="text-red-500 text-center p-10">{error}</div>;
+  if (loading) return (
+    <div className="container" style={{ backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
+      <PageHeader />
+      <div className="text-center p-10" style={{ textAlign: 'center', padding: '4rem' }}>Chargement en cours...</div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="container" style={{ backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
+      <PageHeader />
+      <div style={{ color: '#e74c3c', textAlign: 'center', padding: '4rem' }}>{error}</div>
+    </div>
+  );
 
   return (
     <div className="container" style={{ backgroundColor: '#f4f7f6', minHeight: '100vh' }}>
-      <header style={{ backgroundColor: '#27ae60', padding: '2rem', color: 'white', textAlign: 'center', marginBottom: '2rem' }}>
-        <h1 style={{ color: 'white', margin: 0 }}>Parc Immobilier (AzurImmo)</h1>
-      </header>
+      <PageHeader />
       <div className="apt-grid">
         {appartements.length > 0 ? (
           appartements.map((app) => (

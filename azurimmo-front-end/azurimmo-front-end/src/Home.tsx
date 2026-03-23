@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaBuilding, FaArrowRight } from 'react-icons/fa';
+import PageHeader from './PageHeader';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -8,9 +9,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-page">
-      <header className="home-header">
-        <h1>Parc Immobilier (AzurImmo)</h1>
-      </header>
+      <PageHeader />
 
       <div className="home-container">
         <div className="home-card">

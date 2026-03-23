@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { FaRulerCombined, FaDoorOpen, FaHashtag, FaBuilding, FaMapMarkerAlt, FaCity, FaMailBulk, FaArrowLeft, FaFileAlt } from 'react-icons/fa';
+import { FaRulerCombined, FaDoorOpen, FaArrowLeft, FaFileAlt } from 'react-icons/fa';
+import PageHeader from './PageHeader';
 import './AppartementDetail.css';
 
 interface Batiment {
@@ -47,9 +48,7 @@ const AppartementDetail: React.FC = () => {
   if (loading) {
     return (
       <div className="detail-page">
-        <header className="detail-header">
-          <h1>Parc Immobilier (AzurImmo)</h1>
-        </header>
+        <PageHeader />
         <div className="detail-loading">
           <div className="loading-spinner"></div>
           <p>Chargement en cours...</p>
@@ -61,9 +60,7 @@ const AppartementDetail: React.FC = () => {
   if (error || !appartement) {
     return (
       <div className="detail-page">
-        <header className="detail-header">
-          <h1>Parc Immobilier (AzurImmo)</h1>
-        </header>
+        <PageHeader />
         <div className="detail-error">
           <p>{error ?? "Appartement introuvable."}</p>
           <button className="btn-back" onClick={() => navigate('/appartements')}>
@@ -76,9 +73,7 @@ const AppartementDetail: React.FC = () => {
 
   return (
     <div className="detail-page">
-      <header className="detail-header">
-        <h1>Parc Immobilier (AzurImmo)</h1>
-      </header>
+      <PageHeader />
 
       <div className="detail-container">
         <button className="btn-back" onClick={() => navigate('/appartements')}>
@@ -102,7 +97,6 @@ const AppartementDetail: React.FC = () => {
               <span className="stat-value">{appartement.nbPiece}</span>
               <span className="stat-label">Pièces</span>
             </div>
-           
           </div>
 
           <hr className="detail-divider" />
